@@ -1,7 +1,14 @@
-# I am not finished with this code yet.
-
 from earsketch import *
 
 volumeEffect = initEffect('basicVolume')
 
-finish()
+track = createUGen(volumeEffect, INPUT)
+multiply = createUGen(volumeEffect, TIMES)
+out = createUGen(volumeEffect, OUTPUT)
+
+connect(volumeEffect, track, multiply)
+connect(volumeEffect, multiply, out)
+
+setParam(multiply, VALUE, 0.5)
+
+finishEffect(volumeEffect)
