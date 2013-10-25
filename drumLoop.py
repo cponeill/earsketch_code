@@ -28,7 +28,7 @@ tempo(140)
 beat = "0-00-00-0+++0+0+"
 drum = BIG_BEAT_DRUM_001
 
-from measure in range(1, 3):
+for measure in range(1, 3):
   makeBeat(drum, 1, measure, beat)
   
 finish()
